@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校サッカー観戦ガイド - 選手権トーナメント</title>
+    <title>高校サッカー観戦ガイド - 選手権</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
         body { font-family: 'Noto Sans+JP', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen">
+<body class="bg-slate-900 text-slate-100 min-h-screen pb-12">
 
     <!-- ヘッダー -->
     <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-30 shadow-md">
@@ -19,64 +19,119 @@
                 <span class="bg-emerald-500 text-slate-950 font-black px-2.5 py-1 rounded text-sm">第105回</span>
                 <h1 class="text-xl font-bold tracking-wider">全国高校サッカー選手権 観戦ガイド</h1>
             </div>
-            <div class="text-xs text-slate-400 bg-slate-700 px-3 py-1.5 rounded-full">
-                ⚡ タップして試合・チームを深掘り
+            <div class="text-xs text-emerald-400 bg-slate-700/80 px-3 py-1.5 rounded-full font-medium">
+                ⭐ チームをお気に入り登録可能
             </div>
+        </div>
+
+        <!-- メインナビゲーションタブ -->
+        <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto pb-2 scrollbar-none" id="mainTabsContainer">
+            <button onclick="switchMainTab('home')" id="tabHome" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap">🔥 注目カード</button>
+            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 トーナメント表</button>
+            <!-- お気に入りタブがここに追加されます -->
         </div>
     </header>
 
-    <!-- メインコンテンツ：トーナメント表 -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        <div class="mb-6">
-            <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国大会トーナメント（1回戦・注目カード）</h2>
-            <p class="text-sm text-slate-400 mt-1">対戦カードをタップすると、配信・見どころ・チーム詳細へアクセスできます。</p>
-        </div>
+    <!-- メインコンテンツエリア -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <!-- 試合カード 1 -->
-            <div onclick="openMatchModal('流通経済大柏', '青森山田')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
-                <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
-                    <span>1回戦 | 12月29(火) 12:05</span>
-                    <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVerライブ配信あり</span>
-                </div>
-                <div class="space-y-2 my-3">
-                    <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
-                        <span>流通経済大柏 <span class="text-xs font-normal text-slate-400">(千葉)</span></span>
-                        <span class="text-slate-500 text-sm">-</span>
-                    </div>
-                    <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
-                        <span>青森山田 <span class="text-xs font-normal text-slate-400">(青森)</span></span>
-                        <span class="text-slate-500 text-sm">-</span>
-                    </div>
-                </div>
-                <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
-                    <span>🤖 ジェミニの見どころ要約あり</span>
-                    <span>詳細を見る ➔</span>
-                </div>
+        <!-- 1. 注目カード画面 -->
+        <div id="viewHome" class="space-y-6">
+            <div>
+                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">直近の注目ピックアップカード</h2>
+                <p class="text-sm text-slate-400 mt-1">カードをタップすると、配信・見どころ・チーム詳細へアクセスできます。</p>
             </div>
 
-            <!-- 試合カード 2 -->
-            <div onclick="openMatchModal('前橋育英', '帝京')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
-                <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
-                    <span>1回戦 | 12月29(火) 14:10</span>
-                    <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVerライブ配信あり</span>
-                </div>
-                <div class="space-y-2 my-3">
-                    <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
-                        <span>前橋育英 <span class="text-xs font-normal text-slate-400">(群馬)</span></span>
-                        <span class="text-slate-500 text-sm">-</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- 試合カード 1 -->
+                <div onclick="openMatchModal('流通経済大柏', '青森山田')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
+                    <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+                        <span>1回戦 | 12月29(火) 12:05</span>
+                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVerライブ配信</span>
                     </div>
-                    <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
-                        <span>帝京 <span class="text-xs font-normal text-slate-400">(東京B)</span></span>
-                        <span class="text-slate-500 text-sm">-</span>
+                    <div class="space-y-2 my-3">
+                        <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
+                            <span>流通経済大柏 <span class="text-xs font-normal text-slate-400">(千葉)</span></span>
+                            <span class="text-slate-500 text-sm">-</span>
+                        </div>
+                        <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
+                            <span>青森山田 <span class="text-xs font-normal text-slate-400">(青森)</span></span>
+                            <span class="text-slate-500 text-sm">-</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
+                        <span>🤖 ジェミニの見どころ要約あり</span>
+                        <span>詳細を見る ➔</span>
                     </div>
                 </div>
-                <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
-                    <span>🤖 ジェミニの見どころ要約あり</span>
-                    <span>詳細を見る ➔</span>
+
+                <!-- 試合カード 2 -->
+                <div onclick="openMatchModal('前橋育英', '帝京')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
+                    <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
+                        <span>1回戦 | 12月29(火) 14:10</span>
+                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVerライブ配信</span>
+                    </div>
+                    <div class="space-y-2 my-3">
+                        <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
+                            <span>前橋育英 <span class="text-xs font-normal text-slate-400">(群馬)</span></span>
+                            <span class="text-slate-500 text-sm">-</span>
+                        </div>
+                        <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300 transition">
+                            <span>帝京 <span class="text-xs font-normal text-slate-400">(東京B)</span></span>
+                            <span class="text-slate-500 text-sm">-</span>
+                        </div>
+                    </div>
+                    <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
+                        <span>🤖 ジェミニの見どころ要約あり</span>
+                        <span>詳細を見る ➔</span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- 2. トーナメント表画面（初期は非表示） -->
+        <div id="viewTournament" class="space-y-6 hidden">
+            <div>
+                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 トーナメント表</h2>
+                <p class="text-sm text-slate-400 mt-1">試合カードをタップすると、その試合の共通パート・配信情報が開きます。</p>
+            </div>
+
+            <!-- 簡易トーナメントツリー表示 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-slate-800/50 p-6 rounded-2xl border border-slate-700 overflow-x-auto">
+                <!-- 1回戦 -->
+                <div class="space-y-4">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-700 pb-1">1回戦</h3>
+                    <div onclick="openMatchModal('流通経済大柏', '青森山田')" class="bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer hover:border-emerald-500 transition text-xs shadow">
+                        <div class="text-slate-400 mb-1">12/29 12:05</div>
+                        <div class="font-bold flex justify-between"><span>流通経済大柏</span><span>-</span></div>
+                        <div class="font-bold flex justify-between mt-1"><span>青森山田</span><span>-</span></div>
+                    </div>
+                    <div onclick="openMatchModal('前橋育英', '帝京')" class="bg-slate-800 border border-slate-700 p-3 rounded-xl cursor-pointer hover:border-emerald-500 transition text-xs shadow">
+                        <div class="text-slate-400 mb-1">12/29 14:10</div>
+                        <div class="font-bold flex justify-between"><span>前橋育英</span><span>-</span></div>
+                        <div class="font-bold flex justify-between mt-1"><span>帝京</span><span>-</span></div>
+                    </div>
+                </div>
+                <!-- 準々決勝 -->
+                <div class="space-y-4 flex flex-col justify-around">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-700 pb-1">準々決勝</h3>
+                    <div class="bg-slate-800/60 border border-slate-700/60 p-3 rounded-xl text-xs text-slate-400 text-center">
+                        (1回戦勝者) vs (1回戦勝者)
+                    </div>
+                </div>
+                <!-- 決勝 -->
+                <div class="space-y-4 flex flex-col justify-center">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider border-b border-slate-700 pb-1">決勝</h3>
+                    <div class="bg-emerald-950/40 border border-emerald-500/40 p-4 rounded-xl text-xs text-emerald-300 text-center font-bold">
+                        🏆 選手権 決勝戦
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. お気に入りチーム専用画面置き場 -->
+        <div id="viewFavoritesContainer"></div>
+
     </main>
 
     <!-- 試合詳細モーダル（共通パート ＋ 各校タブ詳細パート） -->
@@ -109,7 +164,7 @@
                         </div>
                         <div>
                             <span class="text-slate-400 block text-xs">ライブ配信 / 地上波</span>
-                            <span class="text-red-400 font-bold">TVerで無料ライブ配信 / 日本テレビ系で全国中継</span>
+                            <span class="text-red-400 font-bold">TVerで無料ライブ配信 / 日本テレビ系全国中継</span>
                         </div>
                     </div>
                     <!-- TVer埋め込み風プレイヤー枠 -->
@@ -147,36 +202,41 @@
                     </div>
                 </div>
 
-                <!-- 4. 各校詳細パート（タブ切り替え） -->
+                <!-- 4. 各校詳細パート（タブ切り替え ＆ お気に入りボタン付き） -->
                 <div class="border-t border-slate-700 pt-4">
-                    <div class="flex space-x-2 mb-4 border-b border-slate-700 pb-2">
-                        <button onclick="switchTeamTab('teamA')" id="btnTeamA" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-lg transition">流通経済大柏の詳細</button>
-                        <button onclick="switchTeamTab('teamB')" id="btnTeamB" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-lg transition">青森山田の詳細</button>
+                    <div class="flex flex-wrap justify-between items-center mb-4 border-b border-slate-700 pb-2 gap-2">
+                        <div class="flex space-x-2">
+                            <button onclick="switchTeamTab('teamA')" id="btnTeamA" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-lg transition">流通経済大柏の詳細</button>
+                            <button onclick="switchTeamTab('teamB')" id="btnTeamB" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-lg transition">青森山田の詳細</button>
+                        </div>
                     </div>
 
                     <!-- 流通経済大柏 タブ中身 -->
                     <div id="contentTeamA" class="space-y-4">
-                        <!-- チームコンセプト -->
-                        <div class="bg-slate-800/60 p-4 rounded-xl text-xs space-y-1">
-                            <span class="text-emerald-400 font-bold">【チーム柄・スローガン】</span>
-                            <p class="text-slate-300">「走る・戦う・球際で負けない」を体現する超体育会系組織。堅い守備からのスピーディーなサイドアタックが持ち味。</p>
-                            <p class="text-slate-400 mt-1">監督：本田 裕一郎（名将）</p>
+                        <div class="flex justify-between items-center bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+                            <div>
+                                <span class="text-emerald-400 font-bold text-sm">流通経済大柏高等学校 (千葉県代表)</span>
+                                <p class="text-xs text-slate-300 mt-0.5">「走る・戦う・球際で負けない」超体育会系組織。監督：本田 裕一郎</p>
+                            </div>
+                            <button onclick="toggleFavorite('流通経済大柏')" id="favBtn_流通経済大柏" class="bg-slate-700 hover:bg-emerald-600 text-xs px-3 py-2 rounded-lg font-bold transition flex items-center space-x-1">
+                                <span>⭐ お気に入り登録</span>
+                            </button>
                         </div>
 
-                        <!-- スタメン図（簡易イメージ） -->
+                        <!-- スタメン図 -->
                         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-center">
-                            <span class="text-xs text-slate-400 block mb-2">⚽ 想定フォーメーション (4-4-2) ※選手をタップすると経歴ポップアップ</span>
+                            <span class="text-xs text-slate-400 block mb-2">⚽ 想定フォーメーション (4-4-2) ※選手タップで経歴ポップアップ</span>
                             <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-lg p-6 relative h-48 flex flex-col justify-between items-center text-xs">
-                                <div class="text-slate-300">FW: <span onclick="openPlayerModal('エースFW 鈴木 蓮', 'J1内定。圧倒的なスピードと裏への抜け出しが武器。')" class="cursor-pointer bg-emerald-600/40 text-emerald-300 px-2 py-1 rounded hover:bg-emerald-500 hover:text-slate-950 font-bold underline">鈴木 蓮 (10)</span></div>
+                                <div class="text-slate-300">FW: <span onclick="openPlayerModal('鈴木 蓮', 'J1内定。圧倒的なスピードと裏への抜け出しが武器。')" class="cursor-pointer bg-emerald-600/40 text-emerald-300 px-2 py-1 rounded hover:bg-emerald-500 hover:text-slate-950 font-bold underline">鈴木 蓮 (10)</span></div>
                                 <div class="flex space-x-8 text-slate-300">
-                                    <span onclick="openPlayerModal('MF 田中 翔', '正確なロングフィードが売りの司令塔。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">田中 翔 (7)</span>
-                                    <span onclick="openPlayerModal('MF 佐藤 龍', '豊富な運動量でボールを刈り取るボランチ。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">佐藤 龍 (6)</span>
+                                    <span onclick="openPlayerModal('田中 翔', '正確なロングフィードが売りの司令塔。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">田中 翔 (7)</span>
+                                    <span onclick="openPlayerModal('佐藤 龍', '豊富な運動量でボールを刈り取るボランチ。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">佐藤 龍 (6)</span>
                                 </div>
-                                <div class="text-slate-300">GK: <span onclick="openPlayerModal('GK 高橋 健', '的確なコーチングでチームを統率する守護神。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">高橋 健 (1)</span></div>
+                                <div class="text-slate-300">GK: <span onclick="openPlayerModal('高橋 健', '的確なコーチングでチームを統率する守護神。')" class="cursor-pointer bg-slate-800 px-2 py-1 rounded underline">高橋 健 (1)</span></div>
                             </div>
                         </div>
 
-                        <!-- 登録選手一覧 & 関連記事 -->
+                        <!-- 登録選手 & 関連記事 -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                             <div class="bg-slate-800 p-3 rounded-xl">
                                 <span class="font-bold text-emerald-400 block mb-2">📋 登録選手一覧（一部）</span>
@@ -196,15 +256,19 @@
                         </div>
                     </div>
 
-                    <!-- 青森山田 タブ中身（初期は非表示） -->
+                    <!-- 青森山田 タブ中身 -->
                     <div id="contentTeamB" class="space-y-4 hidden">
-                        <div class="bg-slate-800/60 p-4 rounded-xl text-xs space-y-1">
-                            <span class="text-emerald-400 font-bold">【チーム柄・スローガン】</span>
-                            <p class="text-slate-300">「圧倒的な強度と規律」をベースに、全国の頂点を常に争う名門。セットプレーの精度と徹底された戦術遂行力が武器。</p>
-                            <p class="text-slate-400 mt-1">監督：正木 昌己</p>
+                        <div class="flex justify-between items-center bg-slate-800/80 p-3 rounded-xl border border-slate-700">
+                            <div>
+                                <span class="text-emerald-400 font-bold text-sm">青森山田高等学校 (青森県代表)</span>
+                                <p class="text-xs text-slate-300 mt-0.5">「圧倒的な強度と規律」をベースにする名門。監督：正木 昌己</p>
+                            </div>
+                            <button onclick="toggleFavorite('青森山田')" id="favBtn_青森山田" class="bg-slate-700 hover:bg-emerald-600 text-xs px-3 py-2 rounded-lg font-bold transition flex items-center space-x-1">
+                                <span>⭐ お気に入り登録</span>
+                            </button>
                         </div>
                         <div class="bg-slate-800 p-4 rounded-xl text-xs text-center text-slate-400">
-                            （青森山田のスタメン図・選手一覧・関連記事データ）
+                            （青森山田のスタメン図・選手一覧・関連記事データがここに展開されます）
                         </div>
                     </div>
                 </div>
@@ -213,15 +277,13 @@
         </div>
     </div>
 
-    <!-- 選手詳細ポップアップ（経歴・関連記事など） -->
+    <!-- 選手詳細ポップアップ -->
     <div id="playerModal" class="fixed inset-0 bg-black/80 hidden z-60 flex items-center justify-center p-4">
         <div class="bg-slate-800 border border-slate-600 w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
             <button onclick="closePlayerModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold">&times;</button>
             <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-bold">選手プロフィール・経歴</span>
-            <h4 id="playerName" class="text-lg font-bold mt-2 text-white">鈴木 蓮 (FW / 背番号10)</h4>
-            <div id="playerInfo" class="mt-4 text-sm text-slate-300 space-y-3">
-                <!-- 動的挿入 -->
-            </div>
+            <h4 id="playerName" class="text-lg font-bold mt-2 text-white">鈴木 蓮</h4>
+            <div id="playerInfo" class="mt-4 text-sm text-slate-300 space-y-3"></div>
             <div class="mt-6 pt-4 border-t border-slate-700">
                 <span class="text-xs font-bold text-slate-400 block mb-1">関連ニュース・過去の経歴</span>
                 <p class="text-xs text-emerald-400 underline cursor-pointer">「U-18日本代表候補選出！世代を代表するストライカーの軌跡」</p>
@@ -230,6 +292,97 @@
     </div>
 
     <script>
+        // お気に入りチーム管理用配列
+        let favorites = [];
+
+        function switchMainTab(tabName) {
+            document.getElementById('viewHome').classList.add('hidden');
+            document.getElementById('viewTournament').classList.add('hidden');
+            document.getElementById('tabHome').className = "px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap";
+            document.getElementById('tabTournament').className = "px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap";
+
+            // お気に入りタブのスタイルもリセット
+            favorites.forEach(fav => {
+                const favTab = document.getElementById(`tabFav_${fav}`);
+                if(favTab) favTab.className = "px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap";
+                const favView = document.getElementById(`viewFav_${fav}`);
+                if(favView) favView.classList.add('hidden');
+            });
+
+            if(tabName === 'home') {
+                document.getElementById('viewHome').classList.remove('hidden');
+                document.getElementById('tabHome').className = "px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap";
+            } else if(tabName === 'tournament') {
+                document.getElementById('viewTournament').classList.remove('hidden');
+                document.getElementById('tabTournament').className = "px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap";
+            } else {
+                // お気に入りチームタブの場合
+                const targetTab = document.getElementById(`tabFav_${tabName}`);
+                const targetView = document.getElementById(`viewFav_${tabName}`);
+                if(targetTab) targetTab.className = "px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap";
+                if(targetView) targetView.classList.remove('hidden');
+            }
+        }
+
+        function toggleFavorite(teamName) {
+            const index = favorites.indexOf(teamName);
+            if(index > -1) {
+                favorites.splice(index, 1);
+                alert(`${teamName} をお気に入りから解除しました。`);
+            } else {
+                favorites.push(teamName);
+                alert(`${teamName} をお気に入り登録しました！上部タブに追加されます。`);
+            }
+            updateFavoritesUI();
+        }
+
+        function updateFavoritesUI() {
+            const tabsContainer = document.getElementById('mainTabsContainer');
+            const container = document.getElementById('viewFavoritesContainer');
+            
+            // 既存のお気に入りタブ・ビューを一旦クリア
+            const existingFavTabs = tabsContainer.querySelectorAll('.fav-tab-item');
+            existingFavTabs.forEach(el => el.remove());
+            container.innerHTML = '';
+
+            favorites.forEach(fav => {
+                // タブボタン生成
+                const btn = document.createElement('button');
+                btn.id = `tabFav_${fav}`;
+                btn.className = "fav-tab-item px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap";
+                btn.innerHTML = `⭐ ${fav}`;
+                btn.onclick = () => switchMainTab(fav);
+                tabsContainer.appendChild(btn);
+
+                // 専用ビュー生成
+                const view = document.createElement('div');
+                view.id = `viewFav_${fav}`;
+                view.className = "space-y-4 hidden";
+                view.innerHTML = `
+                    <div class="bg-slate-800 border border-emerald-500/50 p-6 rounded-2xl shadow-xl space-y-4">
+                        <div class="flex justify-between items-center border-b border-slate-700 pb-3">
+                            <div>
+                                <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2.5 py-1 rounded font-bold">お気に入りチーム</span>
+                                <h2 class="text-xl font-bold mt-1 text-white">${fav}</h2>
+                            </div>
+                            <button onclick="toggleFavorite('${fav}')" class="text-xs bg-slate-700 text-red-400 hover:bg-slate-600 px-3 py-1.5 rounded-lg font-bold">お気に入り解除</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                            <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-emerald-400 font-bold block mb-1">🎯 チームスタイル・コンセプト</span>
+                                <p class="text-slate-300">「${fav}」の今シーズンの戦い方や特徴、ハードワークを徹底する組織力。全国の舞台でも優勝候補として注目を集める。</p>
+                            </div>
+                            <div class="bg-slate-900 p-4 rounded-xl border border-slate-700">
+                                <span class="text-xs text-emerald-400 font-bold block mb-1">📅 直近の試合・スケジュール</span>
+                                <p class="text-slate-300">1回戦 vs 青森山田 （12月29日 12:05 キックオフ）</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(view);
+            });
+        }
+
         function openMatchModal(team1, team2) {
             document.getElementById('modalTitle').innerText = `${team1} vs ${team2}`;
             document.getElementById('matchModal').classList.remove('hidden');
@@ -252,7 +405,7 @@
         }
         function openPlayerModal(name, desc) {
             document.getElementById('playerName').innerText = name;
-            document.getElementById('playerInfo').innerHTML = `<p>${desc}</p><p class='text-xs text-slate-400 mt-2'><strong>経歴:</strong> 中学校年代（〇〇JYD） ➔ 高校入学 ➔ U-17日本代表</p>`;
+            document.getElementById('playerInfo').innerHTML = `<p>${desc}</p><p class='text-xs text-slate-400 mt-2'><strong>経歴:</strong> 中学校年代（〇〇JYD） ➔ 高校入学 ➔ U-17日本代表候補</p>`;
             document.getElementById('playerModal').classList.remove('hidden');
         }
         function closePlayerModal() {
