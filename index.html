@@ -16,18 +16,18 @@
     <header class="bg-slate-800 border-b border-slate-700 sticky top-0 z-30 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <span class="bg-emerald-500 text-slate-950 font-black px-2.5 py-1 rounded text-sm">第104回</span>
+                <span class="bg-emerald-500 text-slate-950 font-black px-2.5 py-1 rounded text-sm">選手権</span>
                 <h1 class="text-xl font-bold tracking-wider">全国高校サッカー選手権 観戦ガイド</h1>
             </div>
             <div class="text-xs text-emerald-400 bg-slate-700/80 px-3 py-1.5 rounded-full font-medium">
-                ⭐ 気になるチームをお気に入り登録可能
+                ⭐ チームをお気に入り登録可能
             </div>
         </div>
 
         <!-- ナビゲーションタブ -->
         <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto pb-2 scrollbar-none" id="mainTabsContainer">
-            <button onclick="switchMainTab('home')" id="tabHome" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap">🔥 注目カード</button>
-            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表（勝敗ルート）</button>
+            <button onclick="switchMainTab('home')" id="tabHome" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap">🔥 注目ピックアップ</button>
+            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表（全カード網羅）</button>
         </div>
     </header>
 
@@ -42,19 +42,19 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div onclick="openMatchModal('流通経済大柏', '米子北')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
+                <div onclick="openMatchModal('青森山田', '立正大淞南')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
                     <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
-                        <span>準々決勝 | 1月4日</span>
+                        <span>2回戦 | 12月31日</span>
                         <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVer配信</span>
                     </div>
                     <div class="space-y-2 my-3">
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
-                            <span>流通経済大柏 <span class="text-xs font-normal text-slate-400">(千葉)</span></span>
-                            <span class="text-emerald-400">2</span>
+                            <span>青森山田 <span class="text-xs font-normal text-slate-400">(青森)</span></span>
+                            <span>-</span>
                         </div>
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
-                            <span>大津 <span class="text-xs font-normal text-slate-400">(熊本)</span></span>
-                            <span class="text-slate-400">1</span>
+                            <span>立正大淞南 <span class="text-xs font-normal text-slate-400">(島根)</span></span>
+                            <span>-</span>
                         </div>
                     </div>
                     <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
@@ -63,19 +63,19 @@
                     </div>
                 </div>
 
-                <div onclick="openMatchModal('青森山田', '大津')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
+                <div onclick="openMatchModal('前橋育英', '岡山学芸館')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
                     <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
-                        <span>2回戦 | 12月31日</span>
-                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">注目カード</span>
+                        <span>1回戦 | 12月29日</span>
+                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">好カード</span>
                     </div>
                     <div class="space-y-2 my-3">
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
-                            <span>青森山田 <span class="text-xs font-normal text-slate-400">(青森)</span></span>
-                            <span class="text-slate-400">0</span>
+                            <span>前橋育英 <span class="text-xs font-normal text-slate-400">(群馬)</span></span>
+                            <span>-</span>
                         </div>
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
-                            <span>大津 <span class="text-xs font-normal text-slate-400">(熊本)</span></span>
-                            <span class="text-emerald-400">2</span>
+                            <span>岡山学芸館 <span class="text-xs font-normal text-slate-400">(岡山)</span></span>
+                            <span>-</span>
                         </div>
                     </div>
                     <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
@@ -86,101 +86,107 @@
             </div>
         </div>
 
-        <!-- 2. 全体トーナメント表（JFA公式スタイル・赤線勝敗ルート） -->
+        <!-- 2. 全体トーナメント表（ご提示いただいた全データを反映） -->
         <div id="viewTournament" class="space-y-6 hidden">
             <div>
-                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 全体トーナメント表</h2>
-                <p class="text-sm text-slate-400 mt-1">左右のブロックに分かれた全対戦カードです。カードをタップすると詳細・配信を確認できます。</p>
+                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 全対戦カード一覧</h2>
+                <p class="text-sm text-slate-400 mt-1">1回戦から決勝までの全組み合わせです。カードをタップすると詳細を確認できます。</p>
             </div>
 
-            <div class="bg-slate-950 p-4 md:p-8 rounded-2xl border border-red-500/30 overflow-x-auto shadow-2xl">
-                <div class="min-w-[1100px] flex justify-between items-center relative">
-
-                    <!-- 左ブロック -->
-                    <div class="w-[42%] space-y-4 border-r-2 border-red-500/50 pr-6 relative">
-                        <div class="absolute -top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">左ブロック (代表校・1回戦〜準決勝)</div>
-                        
-                        <div class="space-y-2 pt-4 text-xs">
-                            <div onclick="openMatchModal('前橋育英', '神戸弘陵学園')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>前橋育英 (群馬) vs 神戸弘陵 (兵庫)</span>
-                                <span class="text-slate-400">2回戦</span>
-                            </div>
-                            <div onclick="openMatchModal('尚志', '高松商')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>尚志 (福島) 6 - 0 高松商 (香川)</span>
-                                <span class="text-emerald-400 font-bold">尚志勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('山梨学院', '京都橘')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>山梨学院 (山梨) 0 - 0(PK6-5) 京都橘 (京都)</span>
-                                <span class="text-emerald-400 font-bold">山梨学院勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('帝京長岡', '大社')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>帝京長岡 (新潟) 5 - 0 大社 (島根)</span>
-                                <span class="text-emerald-400 font-bold">帝京長岡勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('昌平', '高知')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>昌平 (埼玉) vs 高知 (高知)</span>
-                                <span class="text-slate-400">2回戦</span>
-                            </div>
-                            <div onclick="openMatchModal('神村学園', '水口')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>神村学園 (鹿児島) 4 - 0 水口 (滋賀)</span>
-                                <span class="text-emerald-400 font-bold">神村学園勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('流通経済大柏', '米子北')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>流通経済大柏 (千葉) vs 米子北 (鳥取)</span>
-                                <span class="text-slate-400">注目カード</span>
-                            </div>
+            <div class="space-y-6">
+                <!-- 1回戦 -->
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                    <h3 class="text-sm font-bold text-emerald-400 mb-3 border-b border-slate-700 pb-2">📅 1回戦（12月29日 ※一部28日開幕戦）</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div onclick="openMatchModal('堀越', '三重')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Aゾーン】 堀越 (東京B) vs 三重 (三重)</span><span class="text-red-400">12/28開幕戦</span>
+                        </div>
+                        <div onclick="openMatchModal('日大藤沢', '生駒')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Aゾーン】 日大藤沢 (神奈川) vs 生駒 (奈良)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('ノースアジア大明桜', '大手前高松')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Aゾーン】 明桜 (秋田) vs 大手前高松 (香川)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('聖和学園', '高知')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Aゾーン】 聖和学園 (宮城) vs 高知 (高知)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('専大北上', '徳島市立')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Bゾーン】 専大北上 (岩手) vs 徳島市立 (徳島)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('静岡学園', '興南')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Bゾーン】 静岡学園 (静岡) vs 興南 (沖縄)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('山梨学院', '柳ケ浦')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Bゾーン】 山梨学院 (山梨) vs 柳ケ浦 (大分)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('豊川', '長崎総合科学大付')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Bゾーン】 豊川 (愛知) vs 長崎総科大付 (長崎)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('前橋育英', '岡山学芸館')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Cゾーン】 前橋育英 (群馬) vs 岡山学芸館 (岡山)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('西武台', '済美')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Cゾーン】 西武台 (埼玉) vs 済美 (愛媛)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('星稜', '近江')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Cゾーン】 星稜 (石川) vs 近江 (滋賀)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('羽黒', 'AIE国際')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Cゾーン】 羽黒 (山形) vs AIE国際 (兵庫)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('富山第一', '初芝橋本')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Dゾーン】 富山第一 (富山) vs 初芝橋本 (和歌山)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('市立長野', '佐賀東')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Dゾーン】 市立長野 (長野) vs 佐賀東 (佐賀)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('帝京', '飯塚')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Dゾーン】 帝京 (東京A) vs 飯塚 (福岡)</span><span class="text-slate-400">12/29</span>
+                        </div>
+                        <div onclick="openMatchModal('佐野日大', '米子北')" class="bg-slate-900 p-3 rounded border border-slate-700 hover:border-emerald-500 cursor-pointer flex justify-between">
+                            <span>【Dゾーン】 佐野日大 (栃木) vs 米子北 (鳥取)</span><span class="text-slate-400">12/29</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- 中央：決勝戦エリア -->
-                    <div class="w-[20%] text-center px-2 space-y-3 z-10">
-                        <div class="bg-red-600 text-white text-xs font-black py-1.5 px-3 rounded-full shadow-lg inline-block">
-                            🏆 決勝戦 (国立)
-                        </div>
-                        <div class="bg-slate-900 border-2 border-amber-500 p-3 rounded-xl text-xs shadow-2xl space-y-1">
-                            <div class="text-slate-400 text-[10px]">1月12日</div>
-                            <div class="font-bold text-amber-300">左ブロック勝者</div>
-                            <div class="text-red-500 font-black">VS</div>
-                            <div class="font-bold text-amber-300">右ブロック勝者</div>
-                        </div>
+                <!-- 2回戦 -->
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+                    <h3 class="text-sm font-bold text-emerald-400 mb-3 border-b border-slate-700 pb-2">📅 2回戦（12月31日）</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 神村学園 vs 札幌大谷</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (2勝者) vs (3勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (4勝者) vs (1勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 帝京大可児 vs 大津</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 青森山田 vs 立正大淞南</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (5勝者) vs (6勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (7勝者) vs (8勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 高川学園 vs 流通経大柏</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 尚志 vs 如水館</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (9勝者) vs (10勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (11勝者) vs (12勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 丸岡 vs 金光大阪</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 帝京長岡 vs 日章学園</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (13勝者) vs (14勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (15勝者) vs (16勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 東山 vs 鹿島学園</span><span class="text-slate-400">12/31</span></div>
                     </div>
+                </div>
 
-                    <!-- 右ブロック -->
-                    <div class="w-[42%] space-y-4 border-l-2 border-red-500/50 pl-6 relative">
-                        <div class="absolute -top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">右ブロック (代表校・1回戦〜準決勝)</div>
-                        
-                        <div class="space-y-2 pt-4 text-xs">
-                            <div onclick="openMatchModal('岡山学芸館', '日大藤沢')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>岡山学芸館 (岡山) vs 日大藤沢 (神奈川)</span>
-                                <span class="text-slate-400">2回戦</span>
-                            </div>
-                            <div onclick="openMatchModal('青森山田', '初芝橋本')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>青森山田 (青森) 5 - 0 初芝橋本 (和歌山)</span>
-                                <span class="text-emerald-400 font-bold">青森山田勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('北海', '大津')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>北海 (北海道) 1 - 7 大津 (熊本)</span>
-                                <span class="text-emerald-400 font-bold">大津勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('堀越', '宇治山田商')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>堀越 (東京A) 9 - 0 宇治山田商 (三重)</span>
-                                <span class="text-emerald-400 font-bold">堀越勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('富山第一', '佐賀東')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>富山第一 (富山) 3 - 0 佐賀東 (佐賀)</span>
-                                <span class="text-emerald-400 font-bold">富山第一勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('矢板中央', '奈良育英')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>矢板中央 (栃木) 2 - 2(PK2-3) 奈良育英</span>
-                                <span class="text-emerald-400 font-bold">奈良育英勝ち</span>
-                            </div>
-                            <div onclick="openMatchModal('早稲田実', '徳島市立')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-2.5 rounded cursor-pointer flex justify-between items-center">
-                                <span>早稲田実 (東京B) 1 - 4 徳島市立 (徳島)</span>
-                                <span class="text-emerald-400 font-bold">開幕戦</span>
-                            </div>
-                        </div>
+                <!-- 3回戦・準々決勝・準決勝・決勝 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 3回戦（2027年1月2日）</h3>
+                        <p class="text-slate-300">・Aゾーン (17/18勝者 vs 19/20勝者)</p>
+                        <p class="text-slate-300">・Bゾーン (21/22勝者 vs 23/24勝者)</p>
+                        <p class="text-slate-300">・Cゾーン (25/26勝者 vs 27/28勝者)</p>
+                        <p class="text-slate-300">・Dゾーン (29/30勝者 vs 31/32勝者)</p>
                     </div>
-
+                    <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2">
+                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 準々決勝（1月4日） & 準決勝・決勝</h3>
+                        <p class="text-slate-300">・準々決勝 (41, 42, 43, 44の各勝者カード)</p>
+                        <p class="text-slate-300">・準決勝（1月9日）: 41勝者 vs 42勝者 / 43勝者 vs 44勝者</p>
+                        <p class="text-amber-300 font-bold">・決勝（1月11日）: 国立競技場</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,7 +210,7 @@
                     <h4 class="text-sm font-bold text-emerald-400 mb-3">📺 放送・配信・試合情報</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                         <div><span class="text-slate-400 block text-xs">大会</span><span class="font-medium">全国高校サッカー選手権</span></div>
-                        <div><span class="text-slate-400 block text-xs">会場</span><span class="font-medium">国立競技場 / 各種スタジアム</span></div>
+                        <div><span class="text-slate-400 block text-xs">会場</span><span class="font-medium">各都道府県代表校スタジアム / 国立</span></div>
                         <div><span class="text-slate-400 block text-xs">配信</span><span class="text-red-400 font-bold">TVerライブ配信あり</span></div>
                     </div>
                 </div>
@@ -212,22 +218,18 @@
                 <div class="bg-gradient-to-r from-emerald-950/40 to-slate-800 border border-emerald-500/30 rounded-xl p-4">
                     <h4 class="text-sm font-bold text-emerald-400 mb-2">🤖 ジェミニによるこの試合の見どころ要約</h4>
                     <p class="text-sm text-slate-300 leading-relaxed">
-                        「両校ともに高い組織力と洗練された戦術眼を持ち、一瞬の隙も許されない白熱の展開が予想されます。中盤の主導権争いと、堅い守備ブロックをこじ開けるキーマンの閃きが勝敗を分けるポイントです。」
+                        「全国の激戦区を勝ち抜いた強豪同士の対戦。両チームの戦術的噛み合わせや、注目のプロ内定選手のパフォーマンスが勝利の鍵を握ります。」
                     </p>
                 </div>
 
                 <div class="border-t border-slate-700 pt-4">
-                    <div class="flex space-x-2 mb-4">
-                        <button onclick="toggleFavoriteTeam('注目校')" class="bg-slate-700 hover:bg-emerald-600 text-xs px-4 py-2 rounded-lg font-bold transition">⭐ このチームをお気に入り登録する</button>
-                    </div>
+                    <button onclick="toggleFavoriteTeam()" class="bg-slate-700 hover:bg-emerald-600 text-xs px-4 py-2 rounded-lg font-bold transition text-white">⭐ このチームをお気に入り登録する</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        let favorites = [];
-
         function switchMainTab(tabName) {
             document.getElementById('viewHome').classList.add('hidden');
             document.getElementById('viewTournament').classList.add('hidden');
@@ -250,7 +252,7 @@
         function closeMatchModal() {
             document.getElementById('matchModal').classList.add('hidden');
         }
-        function toggleFavoriteTeam(name) {
+        function toggleFavoriteTeam() {
             alert('お気に入りに追加しました！');
         }
     </script>
