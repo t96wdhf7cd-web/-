@@ -20,14 +20,14 @@
                 <h1 class="text-xl font-bold tracking-wider">全国高校サッカー選手権 観戦ガイド</h1>
             </div>
             <div class="text-xs text-emerald-400 bg-slate-700/80 px-3 py-1.5 rounded-full font-medium">
-                ⭐ チームをお気に入り登録可能
+                ⭐ 開幕前・組み合わせ決定版
             </div>
         </div>
 
         <!-- ナビゲーションタブ -->
         <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto pb-2 scrollbar-none" id="mainTabsContainer">
             <button onclick="switchMainTab('home')" id="tabHome" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap">🔥 注目ピックアップ</button>
-            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表（全カード網羅）</button>
+            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表（組み合わせ一覧）</button>
         </div>
     </header>
 
@@ -38,23 +38,23 @@
         <div id="viewHome" class="space-y-6">
             <div>
                 <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">直近の注目ピックアップカード</h2>
-                <p class="text-sm text-slate-400 mt-1">カードをタップすると、配信・見どころ・チーム詳細へアクセスできます。</p>
+                <p class="text-sm text-slate-400 mt-1">カードをタップすると、配信予定やチーム詳細へアクセスできます。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div onclick="openMatchModal('青森山田', '立正大淞南')" class="bg-slate-800 border border-slate-700 rounded-xl p-4 hover:border-emerald-500 cursor-pointer transition shadow-lg group">
                     <div class="flex justify-between items-center text-xs text-slate-400 mb-2">
                         <span>2回戦 | 12月31日</span>
-                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVer配信</span>
+                        <span class="bg-red-500/20 text-red-400 px-2 py-0.5 rounded font-bold">TVer配信予定</span>
                     </div>
                     <div class="space-y-2 my-3">
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
                             <span>青森山田 <span class="text-xs font-normal text-slate-400">(青森)</span></span>
-                            <span>-</span>
+                            <span class="text-xs text-slate-500">未対戦</span>
                         </div>
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
                             <span>立正大淞南 <span class="text-xs font-normal text-slate-400">(島根)</span></span>
-                            <span>-</span>
+                            <span class="text-xs text-slate-500">未対戦</span>
                         </div>
                     </div>
                     <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
@@ -71,11 +71,11 @@
                     <div class="space-y-2 my-3">
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
                             <span>前橋育英 <span class="text-xs font-normal text-slate-400">(群馬)</span></span>
-                            <span>-</span>
+                            <span class="text-xs text-slate-500">未対戦</span>
                         </div>
                         <div class="flex justify-between items-center font-bold text-base group-hover:text-emerald-300">
                             <span>岡山学芸館 <span class="text-xs font-normal text-slate-400">(岡山)</span></span>
-                            <span>-</span>
+                            <span class="text-xs text-slate-500">未対戦</span>
                         </div>
                     </div>
                     <div class="text-xs text-emerald-400 bg-slate-900/60 p-2 rounded flex items-center justify-between">
@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <!-- 2. 全体トーナメント表（ご提示いただいた全データを反映） -->
+        <!-- 2. 全体トーナメント表（正しい組み合わせ一覧） -->
         <div id="viewTournament" class="space-y-6 hidden">
             <div>
                 <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 全対戦カード一覧</h2>
@@ -154,44 +154,42 @@
                     <h3 class="text-sm font-bold text-emerald-400 mb-3 border-b border-slate-700 pb-2">📅 2回戦（12月31日）</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 神村学園 vs 札幌大谷</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (2勝者) vs (3勝者)</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (4勝者) vs (1勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (1回戦2勝者) vs (1回戦3勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 (1回戦4勝者) vs (1回戦1勝者)</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Aゾーン】 帝京大可児 vs 大津</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 青森山田 vs 立正大淞南</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (5勝者) vs (6勝者)</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (7勝者) vs (8勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (1回戦5勝者) vs (1回戦6勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 (1回戦7勝者) vs (1回戦8勝者)</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Bゾーン】 高川学園 vs 流通経大柏</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 尚志 vs 如水館</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (9勝者) vs (10勝者)</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (11勝者) vs (12勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (1回戦9勝者) vs (1回戦10勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 (1回戦11勝者) vs (1回戦12勝者)</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Cゾーン】 丸岡 vs 金光大阪</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 帝京長岡 vs 日章学園</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (13勝者) vs (14勝者)</span><span class="text-slate-400">12/31</span></div>
-                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (15勝者) vs (16勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (1回戦13勝者) vs (1回戦14勝者)</span><span class="text-slate-400">12/31</span></div>
+                        <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 (1回戦15勝者) vs (1回戦16勝者)</span><span class="text-slate-400">12/31</span></div>
                         <div class="bg-slate-900 p-3 rounded border border-slate-700 flex justify-between"><span>【Dゾーン】 東山 vs 鹿島学園</span><span class="text-slate-400">12/31</span></div>
                     </div>
                 </div>
 
-                <!-- 3回戦・準々決勝・準決勝・決勝 -->
+                <!-- 3回戦以降 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
                     <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 3回戦（2027年1月2日）</h3>
-                        <p class="text-slate-300">・Aゾーン (17/18勝者 vs 19/20勝者)</p>
-                        <p class="text-slate-300">・Bゾーン (21/22勝者 vs 23/24勝者)</p>
-                        <p class="text-slate-300">・Cゾーン (25/26勝者 vs 27/28勝者)</p>
-                        <p class="text-slate-300">・Dゾーン (29/30勝者 vs 31/32勝者)</p>
+                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 3回戦（1月2日）</h3>
+                        <p class="text-slate-300">・Aゾーン (神村/札幌大谷勝者 vs 18勝者など)</p>
+                        <p class="text-slate-300">・Bゾーン (青森山田/立正大淞南勝者 vs 22勝者など)</p>
+                        <p class="text-slate-300">・Cゾーン (尚志/如水館勝者 vs 26勝者など)</p>
+                        <p class="text-slate-300">・Dゾーン (帝京長岡/日章学園勝者 vs 30勝者など)</p>
                     </div>
                     <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700 space-y-2">
-                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 準々決勝（1月4日） & 準決勝・決勝</h3>
-                        <p class="text-slate-300">・準々決勝 (41, 42, 43, 44の各勝者カード)</p>
-                        <p class="text-slate-300">・準決勝（1月9日）: 41勝者 vs 42勝者 / 43勝者 vs 44勝者</p>
+                        <h3 class="font-bold text-emerald-400 border-b border-slate-700 pb-1">📅 準々決勝・準決勝・決勝</h3>
+                        <p class="text-slate-300">・準々決勝（1月4日）</p>
+                        <p class="text-slate-300">・準決勝（1月9日）</p>
                         <p class="text-amber-300 font-bold">・決勝（1月11日）: 国立競技場</p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div id="viewFavoritesContainer"></div>
     </main>
 
     <!-- モーダル -->
@@ -210,20 +208,15 @@
                     <h4 class="text-sm font-bold text-emerald-400 mb-3">📺 放送・配信・試合情報</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                         <div><span class="text-slate-400 block text-xs">大会</span><span class="font-medium">全国高校サッカー選手権</span></div>
-                        <div><span class="text-slate-400 block text-xs">会場</span><span class="font-medium">各都道府県代表校スタジアム / 国立</span></div>
-                        <div><span class="text-slate-400 block text-xs">配信</span><span class="text-red-400 font-bold">TVerライブ配信あり</span></div>
+                        <div><span class="text-slate-400 block text-xs">配信</span><span class="text-red-400 font-bold">TVerライブ配信予定</span></div>
                     </div>
                 </div>
 
                 <div class="bg-gradient-to-r from-emerald-950/40 to-slate-800 border border-emerald-500/30 rounded-xl p-4">
                     <h4 class="text-sm font-bold text-emerald-400 mb-2">🤖 ジェミニによるこの試合の見どころ要約</h4>
                     <p class="text-sm text-slate-300 leading-relaxed">
-                        「全国の激戦区を勝ち抜いた強豪同士の対戦。両チームの戦術的噛み合わせや、注目のプロ内定選手のパフォーマンスが勝利の鍵を握ります。」
+                        「開幕に向けて両校の調整が進む一戦。各都道府県の予選を勝ち抜いた強豪同士、初戦特有の緊張感の中でどちらが先に主導権を握るかが勝負の分かれ目となります。」
                     </p>
-                </div>
-
-                <div class="border-t border-slate-700 pt-4">
-                    <button onclick="toggleFavoriteTeam()" class="bg-slate-700 hover:bg-emerald-600 text-xs px-4 py-2 rounded-lg font-bold transition text-white">⭐ このチームをお気に入り登録する</button>
                 </div>
             </div>
         </div>
@@ -251,9 +244,6 @@
         }
         function closeMatchModal() {
             document.getElementById('matchModal').classList.add('hidden');
-        }
-        function toggleFavoriteTeam() {
-            alert('お気に入りに追加しました！');
         }
     </script>
 </body>
