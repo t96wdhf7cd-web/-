@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>高校サッカー観戦ガイド - 選手権</title>
+    <title>高校サッカー観戦ガイド - 選手権トーナメント</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
@@ -27,7 +27,7 @@
         <!-- メインナビゲーションタブ -->
         <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto pb-2 scrollbar-none" id="mainTabsContainer">
             <button onclick="switchMainTab('home')" id="tabHome" class="px-4 py-2 text-sm font-bold bg-emerald-500 text-slate-950 rounded-t-lg transition whitespace-nowrap">🔥 注目カード</button>
-            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表</button>
+            <button onclick="switchMainTab('tournament')" id="tabTournament" class="px-4 py-2 text-sm font-bold bg-slate-800 text-slate-400 hover:text-white rounded-t-lg transition whitespace-nowrap">🏆 全体トーナメント表（勝敗ルート）</button>
             <!-- お気に入りタブがここに追加されます -->
         </div>
     </header>
@@ -89,55 +89,84 @@
             </div>
         </div>
 
-        <!-- 2. 全体トーナメント表画面（左右ツリー型） -->
+        <!-- 2. 全体トーナメント表（勝敗ルート・赤線ツリー型） -->
         <div id="viewTournament" class="space-y-6 hidden">
             <div>
-                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 全体トーナメント表</h2>
-                <p class="text-sm text-slate-400 mt-1">左右に分かれた全対戦カードです。試合カードをタップすると詳細・配信が開きます。</p>
+                <h2 class="text-lg font-bold text-emerald-400 border-l-4 border-emerald-500 pl-3">全国高校サッカー選手権 全体トーナメント表（勝ち上がりルート）</h2>
+                <p class="text-sm text-slate-400 mt-1">JFA公式のように左右に分かれたトーナメントツリーです。各カードをタップすると詳細・配信が開きます。</p>
             </div>
 
-            <!-- 左右全体トーナメントコンテナ (横スクロール対応) -->
-            <div class="bg-slate-950 p-4 md:p-6 rounded-2xl border border-slate-800 overflow-x-auto">
-                <div class="min-w-[900px] flex justify-between items-center gap-4">
-                    
-                    <!-- 左ブロック（左側トーナメント） -->
-                    <div class="flex-1 space-y-3">
-                        <div class="text-xs font-bold text-emerald-400 text-center mb-2">【左ブロック】</div>
-                        <div onclick="openMatchModal('流通経済大柏', '青森山田')" class="bg-slate-900 border border-slate-700 hover:border-emerald-500 p-2.5 rounded-lg cursor-pointer transition text-xs shadow">
-                            <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 12:05</span><span class="text-red-400">TVer</span></div>
-                            <div class="flex justify-between font-bold"><span>流通経済大柏 (千葉)</span><span>-</span></div>
-                            <div class="flex justify-between font-bold mt-1"><span>青森山田 (青森)</span><span>-</span></div>
+            <!-- ツリーコンテナ（横スクロール対応・赤線アクセント） -->
+            <div class="bg-slate-950 p-4 md:p-8 rounded-2xl border border-red-500/30 overflow-x-auto shadow-2xl">
+                <div class="min-w-[1000px] flex justify-between items-center relative">
+
+                    <!-- 左側ブロック -->
+                    <div class="w-[38%] space-y-6 border-r-2 border-red-500/50 pr-6 relative">
+                        <div class="absolute -top-4 left-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">左ブロック (1回戦〜準決勝)</div>
+                        
+                        <!-- 1回戦カード群 -->
+                        <div class="space-y-3 pt-4">
+                            <div onclick="openMatchModal('流通経済大柏', '青森山田')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-3 rounded-lg cursor-pointer transition text-xs shadow relative group">
+                                <div class="absolute -right-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                                <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 12:05</span><span class="text-red-400 font-bold">LIVE</span></div>
+                                <div class="flex justify-between font-bold text-emerald-300"><span>流通経済大柏 (千葉)</span><span>2</span></div>
+                                <div class="flex justify-between font-bold mt-1 text-slate-300"><span>青森山田 (青森)</span><span>1</span></div>
+                            </div>
+                            <div onclick="openMatchModal('前橋育英', '帝京')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-3 rounded-lg cursor-pointer transition text-xs shadow relative">
+                                <div class="absolute -right-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                                <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 14:10</span><span class="text-red-400 font-bold">LIVE</span></div>
+                                <div class="flex justify-between font-bold text-slate-300"><span>前橋育英 (群馬)</span><span>0</span></div>
+                                <div class="flex justify-between font-bold mt-1 text-emerald-300"><span>帝京 (東京B)</span><span>1</span></div>
+                            </div>
                         </div>
-                        <div onclick="openMatchModal('前橋育英', '帝京')" class="bg-slate-900 border border-slate-700 hover:border-emerald-500 p-2.5 rounded-lg cursor-pointer transition text-xs shadow">
-                            <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 14:10</span><span class="text-red-400">TVer</span></div>
-                            <div class="flex justify-between font-bold"><span>前橋育英 (群馬)</span><span>-</span></div>
-                            <div class="flex justify-between font-bold mt-1"><span>帝京 (東京B)</span><span>-</span></div>
+
+                        <!-- 準々決勝・準決勝ルート合流 -->
+                        <div class="bg-slate-900/80 border border-red-500/40 p-3 rounded-lg text-xs relative">
+                            <div class="absolute -right-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                            <span class="text-[10px] text-slate-400 block mb-1">準々決勝・準決勝 勝者</span>
+                            <div class="font-bold text-amber-300">流通経済大柏（左ブロック代表）</div>
                         </div>
                     </div>
 
-                    <!-- 中央：決勝戦エリア -->
-                    <div class="w-56 text-center px-4 space-y-3">
-                        <div class="text-xs font-bold text-amber-400">🏆 決勝戦</div>
-                        <div class="bg-amber-950/30 border border-amber-500/50 p-4 rounded-xl text-xs shadow-lg space-y-2">
-                            <div class="text-slate-400 text-[10px]">1月9日 14:05 国立</div>
-                            <div class="font-bold text-amber-200">左ブロック勝者</div>
-                            <div class="text-slate-500">vs</div>
-                            <div class="font-bold text-amber-200">右ブロック勝者</div>
+                    <!-- 中央：決勝戦エリア (国立) -->
+                    <div class="w-[24%] text-center px-2 space-y-3 z-10">
+                        <div class="bg-red-600 text-white text-xs font-black py-1.5 px-3 rounded-full shadow-lg inline-block animate-pulse">
+                            🏆 決勝戦 (国立競技場)
+                        </div>
+                        <div class="bg-slate-900 border-2 border-amber-500 p-4 rounded-xl text-xs shadow-2xl space-y-2">
+                            <div class="text-slate-400 text-[10px]">1月9日(月) 14:05 キックオフ</div>
+                            <div class="font-bold text-amber-300 text-sm">流通経済大柏</div>
+                            <div class="text-red-500 font-black text-base">VS</div>
+                            <div class="font-bold text-amber-300 text-sm">静岡学園</div>
+                            <div class="text-[10px] text-emerald-400 mt-2 font-bold bg-emerald-950/50 py-1 rounded">地上波全国中継 / TVer</div>
                         </div>
                     </div>
 
-                    <!-- 右ブロック（右側トーナメント） -->
-                    <div class="flex-1 space-y-3">
-                        <div class="text-xs font-bold text-emerald-400 text-center mb-2">【右ブロック】</div>
-                        <div onclick="openMatchModal('静岡学園', '米子北')" class="bg-slate-900 border border-slate-700 hover:border-emerald-500 p-2.5 rounded-lg cursor-pointer transition text-xs shadow">
-                            <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 12:05</span><span class="text-red-400">TVer</span></div>
-                            <div class="flex justify-between font-bold"><span>静岡学園 (静岡)</span><span>-</span></div>
-                            <div class="flex justify-between font-bold mt-1"><span>米子北 (鳥取)</span><span>-</span></div>
+                    <!-- 右側ブロック -->
+                    <div class="w-[38%] space-y-6 border-l-2 border-red-500/50 pl-6 relative">
+                        <div class="absolute -top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded">右ブロック (1回戦〜準決勝)</div>
+                        
+                        <!-- 1回戦カード群 -->
+                        <div class="space-y-3 pt-4">
+                            <div onclick="openMatchModal('静岡学園', '米子北')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-3 rounded-lg cursor-pointer transition text-xs shadow relative">
+                                <div class="absolute -left-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                                <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 12:05</span><span class="text-red-400 font-bold">LIVE</span></div>
+                                <div class="flex justify-between font-bold text-emerald-300"><span>静岡学園 (静岡)</span><span>3</span></div>
+                                <div class="flex justify-between font-bold mt-1 text-slate-300"><span>米子北 (鳥取)</span><span>1</span></div>
+                            </div>
+                            <div onclick="openMatchModal('神村学園', '矢板中央')" class="bg-slate-900 border border-slate-700 hover:border-red-500 p-3 rounded-lg cursor-pointer transition text-xs shadow relative">
+                                <div class="absolute -left-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                                <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 14:10</span><span class="text-red-400 font-bold">LIVE</span></div>
+                                <div class="flex justify-between font-bold text-slate-300"><span>神村学園 (鹿児島)</span><span>1</span></div>
+                                <div class="flex justify-between font-bold mt-1 text-emerald-300"><span>矢板中央 (栃木)</span><span>2</span></div>
+                            </div>
                         </div>
-                        <div onclick="openMatchModal('神村学園', '矢板中央')" class="bg-slate-900 border border-slate-700 hover:border-emerald-500 p-2.5 rounded-lg cursor-pointer transition text-xs shadow">
-                            <div class="flex justify-between text-[10px] text-slate-400 mb-1"><span>1回戦 12/29 14:10</span><span class="text-red-400">TVer</span></div>
-                            <div class="flex justify-between font-bold"><span>神村学園 (鹿児島)</span><span>-</span></div>
-                            <div class="flex justify-between font-bold mt-1"><span>矢板中央 (栃木)</span><span>-</span></div>
+
+                        <!-- 準々決勝・準決勝ルート合流 -->
+                        <div class="bg-slate-900/80 border border-red-500/40 p-3 rounded-lg text-xs relative">
+                            <div class="absolute -left-6 top-1/2 w-6 h-[2px] bg-red-500"></div>
+                            <span class="text-[10px] text-slate-400 block mb-1">準々決勝・準決勝 勝者</span>
+                            <div class="font-bold text-amber-300">静岡学園（右ブロック代表）</div>
                         </div>
                     </div>
 
@@ -430,4 +459,3 @@
     </script>
 </body>
 </html>
-
